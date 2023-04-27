@@ -11,3 +11,13 @@ function sumDigPow(a, b) {
     return eureka
 }
 
+// Unique In Order
+const uniqueInOrder = iterable => {
+    let strArr = Array.isArray(iterable) ? iterable : iterable.split('');
+    let unique = strArr.filter((letter, i) => {
+        return strArr[i] != strArr[i+1];
+    })
+    return unique;
+}
+
+const uniqueInOrder1 = iterable => [...iterable].filter((a, i) => a !== iterable[i-1])

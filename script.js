@@ -21,3 +21,28 @@ const uniqueInOrder = iterable => {
 }
 
 const uniqueInOrder1 = iterable => [...iterable].filter((a, i) => a !== iterable[i-1])
+
+// Your order, please
+function order(words){
+    if (words.length == 0){
+        return words;
+    }
+    let wordsarr = words.split(' ');
+    let indarr = words.match(/\d/g);
+    let neword = [];
+    for (let i = 1; i <= indarr.length; i++){
+        let ind = indarr.indexOf(i.toString())
+        neword.push(wordsarr[ind])
+    }
+    return neword.join(' ')
+}
+
+function order1(words){
+    return words.split(' ').sort(function(a, b){
+        return a.match(/\d/) - b.match(/\d/);
+    }).join(' ');
+}
+
+function order2(words) {
+    return words.split(' ').sort((wordA, wordB) => wordA.match(/\d+/) > wordB.match(/\d+/)).join(' ')
+}

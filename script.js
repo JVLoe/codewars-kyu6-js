@@ -46,3 +46,14 @@ function order1(words){
 function order2(words) {
     return words.split(' ').sort((wordA, wordB) => wordA.match(/\d+/) > wordB.match(/\d+/)).join(' ')
 }
+
+// The Supermarket Queue
+function queueTime(customers, n) {
+    let w = new Array(n).fill(0);
+    for (let t of customers) {
+        let idx = w.indexOf(Math.min(...w));
+        w[idx] += t;
+
+    }
+    return Math.max(...w);
+}
